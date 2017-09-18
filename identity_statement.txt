@@ -1,0 +1,87 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+In the wake of the Equifax breach, I have decided to start using PGP to
+produce signed messages to authenticate my identity and to produce signed
+messages to verify any non-routine financial or other transaction of
+any importance. While I doubt that this will have any practical relevance,
+I intend to do this to at minimum raise awareness of the extremely poor
+state of online authentication. Currently most financial and commercial
+organizations are perfectly willing to "authenticate" an individual based
+upon their ability to recite their Social Security Number, date of birth,
+and other trivial information that should be presumed to be in the hands
+of criminals.
+
+In order to verify that I (Eric Andrew Appelt) am the person who has written
+this document, please find me in person and I will give you a card with the
+fingerprint of the PGP key used to sign this document.
+
+I believe that authentication should work this way - or in some similar
+fashion that uses asymmetric key encryption. I should be able to go to a
+bank, car dealership, or place of work, and present government issued photo
+ID along with a digital fingerprint corresponding to a private key known only
+to me. The bank would then have linked my identity to the key and can trust
+that messages signed with that key are authentic, unless I revoke that key.
+We, as a society, could even rely on the government or private instutions to
+provide such trusted links between actual individuals and the digital
+keys they have published to use to authenticate themselves. In principle,
+it should be possible to write software that makes this managable and even
+simple for the average consumer.
+
+I further believe that we accept the status quo purely based on the normative
+power of the actual. If using social security numbers was not already an
+accepted method of authenticating an individual over the phone, all security
+and industry experts would consider it to be criminally negligent to
+do so. It only seems "weird" to present digital fingerprints for private
+keys because it is rarely done. It should be normal. People should be
+extremely alarmed about the status quo. Your identity is insecure, and there
+is little you can do to protect it because we have no sensible system
+put in place as a society to authenticate your communications.
+
+I claim the following:
+
+* My name is Eric Andrew Appelt.
+
+* I am a citizen of the United States of America.
+
+* As of September 17th, 2017 my personal email address is
+  eric.appelt@gmail.com
+
+* I am married to Rachel Appelt, and we have two children: Sophia and
+  Jacob Appelt.
+
+* As of September 17th, 2017, I am employed by Vanderbilt University as a
+  system administrator at the Advanced Computing Center for Research and
+  Education.
+
+* I graduated from Vanderbilt University with the degree of Ph.D. in physics
+  in May of 2014.
+
+* As of 2017-09-17, I own the domain ericappelt.com. and maintain
+  a personal website at https://www.ericappelt.com
+
+* As of 2017-09-17, my github account is https://github.com/appeltel
+
+* As of 2017-09-17, my twitter account is https://twitter.com/appeltel
+
+* As of 2017-09-17, my facebook profile is
+  https://www.facebook.com/profile.php?id=100008708856151
+
+* My PGP key valid until 2020-09-16 can be found at
+  https://pgp.mit.edu/pks/lookup?op=get&search=0x0256FE61F29F4290
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEE7X1uoSNXl6+qxx5RAlb+YfKfQpAFAlm/LWEACgkQAlb+YfKf
+QpCOIA/+Jff7iJ5aT1zvmaZkgjV6jgrqHXQvGlVZhvt4lRQnSIHEnQupfOaBO+ke
+ZZZCCZ++SZZqTcjDRqZua5329dlRFV4VOFIqcmY9oDzzna6FSi7CpWhfovwYF9/H
+EpRltXjA99Ayhju0GqfwmvFAV8s4J5WoXe2qWsSu46Z647vw1TjPE5cDeur5Phyn
+gTzSSG0V1DvlBfDkiZnMmBAqWtfU3sUe7cuiANGWH8do2OBdDjDBSSTS1b2gWTM8
+3Scpwa8g/CzNj3GUn98Oc1JTlm/ZRQjnlDGd3CLX22Hdm1kaBKuGvuM2uPzJyGUd
+kS89aGSzWK24O9fnZA7ZUGELDgue4TPPI4YMgOhyxJ3JCLxBhNA5CBY1+VCAgqdq
+UqvFJNJTqNaWxvn9VgVCYjl6rnqbjaj6c+r1VtErvZp9ZaGrBZT6i4KruTPj9bnq
+iirq1Iy7ZqHNk7nZqRxbyExhvbzh9V+4ngIXGuTldGRYglRCmxJt+qiDRzecgfoI
+VWe+wZXTmKHc84/H6/YLkTRDLKZLzSGysv61U7Re+ZsacHf7+IFLPl3HI+QzHjzW
+3L5klgJo2mVsX3oP+K35ePolAGVD5bN1VlJ4f9tJRwUs2MqnqlOVTaX4eFJDnkAu
+r6+yKwjMgcU+2uoMWBNUOnnizY41wHRK6uUB+GCL54WpDI3ShY8=
+=SCgk
+-----END PGP SIGNATURE-----
