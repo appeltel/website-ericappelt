@@ -9,8 +9,7 @@ category: writing
 
 Things I have written:
 
-{% for post in site.categories[page.category] %}
-* [{{ post.title}}]({{ post.url }})
+{% for post in site.categories[page.category] %}* {{ post.date | date: "%B %d, %Y" }} - [{{ post.title }}]({{ post.url }})
 {% endfor %}
 
 </div>
