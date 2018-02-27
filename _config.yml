@@ -1,0 +1,10 @@
+name: "Software, Science, and Stuff"
+
+description: "Personal and Professional Website of Eric Appelt"
+
+author: Eric Appelt
+
+author_email: eric.appelt@gmail.com
+
+collections:
+- sections
