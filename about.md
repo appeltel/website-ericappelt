@@ -1,6 +1,7 @@
 ---
 layout: about
-title: About Me
+title: Eric Appelt
+subtitle: Software, Science, and Stuff
 ---
 
 <div class="col-xs-12 col-md-4 about-entry" markdown="1"> 
