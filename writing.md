@@ -5,7 +5,7 @@ subtitle: Mostly technical stuff
 category: writing
 ---
 
-<div class="col-xs-12 col-md-12 bigfont-column" markdown="1"> 
+<div class="col-xs-12 col-md-12 blogpost" markdown="1"> 
 
 Things I have written:
 
