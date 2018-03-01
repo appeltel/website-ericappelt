@@ -6,5 +6,8 @@ author: Eric Appelt
 
 author_email: eric.appelt@gmail.com
 
+markdown: kramdown
+highlighter: rouge
+
 collections:
 - sections
