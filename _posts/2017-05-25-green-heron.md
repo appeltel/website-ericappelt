@@ -1,5 +1,5 @@
 ---
-layout: blogpost 
+layout: photopost 
 title: Green Heron
 category: metazoa
 mclass: Aves

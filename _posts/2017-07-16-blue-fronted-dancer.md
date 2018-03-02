@@ -1,5 +1,5 @@
 ---
-layout: blogpost
+layout: photopost
 title: Blue Fronted Dancer
 category: metazoa
 mclass: Insecta

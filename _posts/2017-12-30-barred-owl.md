@@ -1,5 +1,5 @@
 ---
-layout: blogpost 
+layout: photopost 
 title: Barred Owl
 category: metazoa
 mclass: Aves

@@ -1,5 +1,5 @@
 ---
-layout: blogpost 
+layout: photopost 
 title: Wild Turkey
 category: metazoa
 mclass: Aves

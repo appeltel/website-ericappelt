@@ -1,5 +1,5 @@
 ---
-layout: blogpost
+layout: photopost
 title: Great Blue Heron
 category: metazoa
 mclass: Aves

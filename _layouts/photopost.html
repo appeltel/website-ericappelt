@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include header.html %}
+
+  <body style="background-color: black;">
+
+    {% include navbar.html %}
+    {% include titlesplash-date.html %}
+
+    <div class="container photopost-container">
+      <div class="row">
+        <div class="col-xs-12 col-md-10 col-md-push-1 blogpost" id="thepost"> 
+            {{ content }}
+        </div>
+        <div class="col-xs-6 col-md-1 col-md-pull-10 buttonbox text-left"> 
+          {% if page.next_in_category != nil %}
+          <a href={{page.next_in_category.url}} class="btn btn-tall btn-block btn-primary">&lt;&lt;&lt;</a>
+          {% endif %}
+        </div>
+        <div class="col-xs-6 col-md-1 buttonbox text-right"> 
+          {% if page.previous_in_category != nil %}
+          <a href={{page.previous_in_category.url}} class="btn btn-tall btn-block btn-primary">&gt;&gt;&gt;</a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="row photopost-row">
+        <div class="hidden-xs col-md-12 buttonbox">
+          <script>
+            function fullscreenphoto()
+            {
+                var elem = document.getElementById('thepost').getElementsByTagName('img')[0];
+                var requestFullScreen = elem.requestFullscreen || elem.msRequestFullscreen || elem.mozRequestFullScreen || elem.webkitRequestFullscreen;
+
+                requestFullScreen.call(elem);
+            }
+
+            var fullscreenlink = document.getElementById('fullscreenphoto');
+            fullscreenlink.onclick = fullscreenphoto;
+          </script>
+          <button onclick="fullscreenphoto()" class="btn btn-block btn-primary">Fullscreen</button>
+        </div>
+      </div>
+    </div>
+
+    {% include bootstrap-core.html %}
+
+  </body>
+</html>

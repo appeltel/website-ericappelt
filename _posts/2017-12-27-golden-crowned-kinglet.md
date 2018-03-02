@@ -1,5 +1,5 @@
 ---
-layout: blogpost
+layout: photopost
 title: Golden Crowned Kinglet
 category: metazoa
 mclass: Aves

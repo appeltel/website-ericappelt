@@ -1,5 +1,5 @@
 ---
-layout: blogpost
+layout: photopost
 title: Bald Eagle
 category: metazoa
 mclass: Aves

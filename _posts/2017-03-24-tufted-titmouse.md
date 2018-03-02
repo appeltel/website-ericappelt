@@ -1,5 +1,5 @@
 ---
-layout: blogpost
+layout: photopost
 title: Tufted Titmouse
 category: metazoa
 mclass: Aves

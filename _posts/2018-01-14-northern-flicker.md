@@ -1,5 +1,5 @@
 ---
-layout: blogpost
+layout: photopost
 title: Northern Flicker
 category: metazoa
 mclass: Aves

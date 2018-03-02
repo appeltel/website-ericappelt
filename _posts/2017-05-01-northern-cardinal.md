@@ -1,5 +1,5 @@
 ---
-layout: blogpost 
+layout: photopost 
 title: Northern Cardinal
 category: metazoa
 mclass: Aves

@@ -1,5 +1,5 @@
 ---
-layout: blogpost
+layout: photopost
 title: Spicebush Swallowtail
 category: metazoa
 mclass: Insecta
