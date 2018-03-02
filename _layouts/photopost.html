@@ -4,11 +4,12 @@
 
   <body style="background-color: black;">
 
-    {% include navbar.html %}
-    {% include titlesplash-date.html %}
 
     <div class="container photopost-container">
       <div class="row">
+        <div class="col-xs-12 photolead">
+          <p class="lead">{{ page.title }} - {{ page.date | date: "%B %d, %Y" }}</p>
+        </div>
         <div class="col-xs-12 col-md-10 col-md-push-1 blogpost" id="thepost"> 
             {{ content }}
         </div>
@@ -40,8 +41,8 @@
           <button onclick="fullscreenphoto()" class="btn btn-block btn-primary">Fullscreen</button>
         </div>
       </div>
+    {% include navbar-photo.html %}
     </div>
-
     {% include bootstrap-core.html %}
 
   </body>
