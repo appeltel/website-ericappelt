@@ -1,0 +1,12 @@
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+  color: white;
+  background-color: black;
+  border-color: black;
+ }
+
+.btn
+{
+  color: white;
+  background-color: black;
+  border-color: black;
+}
