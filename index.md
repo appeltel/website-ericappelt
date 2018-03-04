@@ -7,7 +7,7 @@ subtitle: Software, Science, and Stuff
 <div class="col-xs-12 col-md-6 bigfont-column" markdown="1"> 
 
 
-![Hoverfly](/images/20170624_hoverfly.jpg){: .img-responsive .center-block .framed-image }
+![Hoverfly](/images/metazoa/20170624_hoverfly.jpg){: .img-responsive .center-block .framed-image }
 
 </div>
 <div class="col-xs-12 col-md-6 bigfont-column" markdown="1"> 

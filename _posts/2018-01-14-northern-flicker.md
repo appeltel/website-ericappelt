@@ -5,7 +5,7 @@ category: metazoa
 mclass: Aves
 ---
 
-![Northern Flicker](/images/20180114_northern_flicker_s.jpg){: .img-responsive .center-block .framed-image}
+![Northern Flicker](/images/metazoa/20180114_northern_flicker_s.jpg){: .img-responsive .center-block .framed-image}
 
 Taken in my backyard, Nashville, Tennessee.
 

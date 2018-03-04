@@ -5,6 +5,6 @@ category: metazoa
 mclass: Insecta
 ---
 
-![Unidentified Butterfly](/images/20170822_unidentified_butterfly_small.jpg){: .img-responsive .center-block .framed-image}
+![Unidentified Butterfly](/images/metazoa/20170822_unidentified_butterfly_small.jpg){: .img-responsive .center-block .framed-image}
 
 Taken at Radnor Lake State Park, Tennessee.
