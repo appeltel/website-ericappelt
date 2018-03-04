@@ -43,6 +43,20 @@ category: metazoa
 
 <div class="col-xs-12 col-md-12 blogpost" markdown="1"> 
 
+{% assign counter = 0 %}
+{% assign maxPostCount = 10 %}
+
+Here are a few of my most recent captures:
+
+{% strip %}
+{% for post in site.categories[page.category] %}
+  {% if counter < maxPostCount %}
+    {% assign counter=counter | plus:1 %}
+* [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%B %d, %Y" }} ({{post.mclass}})
+  {% endif %}
+{% endfor %}
+{% endstrip %}
+
 Unless otherwise specified, these are all wild animals that were
 not baited in any manner. Baiting is limited backyard birdfeeders for
 feeder birds and sugary stuff on the pavement for ants. Park or reserve
@@ -51,10 +65,8 @@ rules were followed in the capture of all images.
 High resolution images if available will be provided on request to educators,
 park rangers, wildlife conservancy organizations, close friends, and family.
 
-The full list of animals that I have digitally captured and posted:
-
-{% for post in site.categories[page.category] %}* [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%B %d, %Y" }} ({{post.mclass}})
-{% endfor %}
+The full list of animals that I have digitally captured and posted is
+[here](/metazoalist.html).
 
 
 </div>
