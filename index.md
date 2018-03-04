@@ -22,10 +22,18 @@ subtitle: Software, Science, and Stuff
 
 ### A collection of photos and writing
 
-This is my small personal and demonstration website. Here you can:
-* read a little bit [about me](/about.html),
-* read some things that I have [written](/writing.html), or
-* look at [pictures of wildlife](/metazoa.html) that I have taken.
+My wildlife photography, general and technical writing, and
+professional contact information. I recommend the photography
+part.
 
-I recommend the pictures.
+<a href="/metazoa.html" class="btn btn-block btn-primary bigfont">
+Wildlife photography
+</a>
+<a href="/writing.html" class="btn btn-block btn-primary bigfont">
+General and technical writing
+</a>
+<a href="/about.html" class="btn btn-block btn-primary bigfont">
+About Me
+</a>
+
 </div>

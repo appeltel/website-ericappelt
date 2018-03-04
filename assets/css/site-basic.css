@@ -28,6 +28,9 @@ body {
   border: 2px solid rgba(150, 150, 150, 0.8);
   border-radius: 0.5em;
 }
+.bigfont {
+  font-size: 1.2em;
+}
 .bigfont-column {
   background-color: transparent;
   font-size: 1.2em;
