@@ -25,7 +25,7 @@ category: metazoa
     elem.setAttribute("class", "btn btn-tall btn-primary btn-block bigfont");
     document.getElementById("firstm").appendChild(elem);
   </script>
-  <div class="col-xs-4 col-md-4 bigfont-column" id="randm"></div>
+  <div class="col-xs-4 bigfont-column" id="randm"></div>
   <script>
     var metazoa_string = "{{metazoalinks }}";
     var metazoa = metazoa_string.split(',');
@@ -36,7 +36,7 @@ category: metazoa
     elem.setAttribute("class", "btn btn-tall btn-primary btn-block bigfont");
     document.getElementById("randm").appendChild(elem);
   </script>
-  <div class="col-xs-12 col-md-4 bigfont-column" id="latestm"></div>
+  <div class="col-xs-4 bigfont-column" id="latestm"></div>
   <script>
     var metazoa_string = "{{metazoalinks }}";
     var metazoa = metazoa_string.split(',');
