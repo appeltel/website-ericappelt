@@ -55,13 +55,16 @@ category: metazoa
 
 
 <div class="row" markdown="1">
-<div class="col-xs-12 col-md-12 bigfont-column" markdown="1"> 
+
 
 {% assign counter = 0 %}
 {% assign maxPostCount = 10 %}
 
+<div class="col-xs-12 bigfont-column" markdown="1"> 
 Here are a few of my most recent captures:
+</div>
 
+<div class="col-xs-12 hidden-xs bigfont-column" markdown="1"> 
 {% strip %}
 Preview | Title/Link | Date | Class/Superorder
 --- | --- | --- | ---
@@ -72,7 +75,23 @@ Preview | Title/Link | Date | Class/Superorder
   {% endif %}
 {% endfor %}
 {% endstrip %}
+</div>
 
+<div class="col-xs-12 visible-xs-block bigfont-column" markdown="1"> 
+{% strip %}
+Preview | Title/Link
+--- | ---
+{% assign counter=0 %}
+{% for post in site.categories[page.category] %}
+  {% if counter < maxPostCount %}
+    {% assign counter=counter | plus:1 %}
+![{{post.title}}](/images/metazoa_thumbs/{{post.mimage}}) | [{{ post.title }}]({{ post.url }}) 
+  {% endif %}
+{% endfor %}
+{% endstrip %}
+</div>
+
+<div class="col-xs-12 bigfont-column" markdown="1"> 
 Unless otherwise specified, these are all wild animals that were
 not baited in any manner. Baiting is limited backyard birdfeeders for
 feeder birds and sugary stuff on the pavement for ants. Park or reserve
@@ -83,8 +102,7 @@ park rangers, wildlife conservancy organizations, close friends, and family.
 
 The full list of animals that I have digitally captured and posted is
 [here](/metazoalist.html).
-
-
-</div></div>
+</div>
+</div>
 
 </div>
