@@ -1,3 +1,6 @@
 _site
 # we render to an html directory as well
 html
+
+# python stuff
+venv

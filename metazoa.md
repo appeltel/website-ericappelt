@@ -55,7 +55,7 @@ category: metazoa
 
 
 <div class="row" markdown="1">
-<div class="col-xs-12 col-md-12 blogpost" markdown="1"> 
+<div class="col-xs-12 col-md-12 bigfont-column" markdown="1"> 
 
 {% assign counter = 0 %}
 {% assign maxPostCount = 10 %}
@@ -63,10 +63,12 @@ category: metazoa
 Here are a few of my most recent captures:
 
 {% strip %}
+Preview | Title/Link | Date | Class/Superorder
+--- | --- | --- | ---
 {% for post in site.categories[page.category] %}
   {% if counter < maxPostCount %}
     {% assign counter=counter | plus:1 %}
-* [{{ post.title }}]({{ post.url }}) - {{ post.date | date: "%B %d, %Y" }} ({{post.mclass}})
+![{{post.title}}](/images/metazoa_thumbs/{{post.mimage}}) | [{{ post.title }}]({{ post.url }}) | {{ post.date | date: "%B %d, %Y" }} | {{post.mclass}}
   {% endif %}
 {% endfor %}
 {% endstrip %}
