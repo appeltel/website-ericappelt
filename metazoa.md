@@ -22,7 +22,7 @@ category: metazoa
     var elem = document.createElement("a");
     elem.href = mfirst;
     elem.text = "First";
-    elem.setAttribute("class", "btn btn-tall btn-primary btn-block bigfont");
+    elem.setAttribute("class", "btn btn-tall btn-primary btn-block");
     document.getElementById("firstm").appendChild(elem);
   </script>
   <div class="col-xs-4 bigfont-column" id="randm"></div>
@@ -33,7 +33,7 @@ category: metazoa
     var elem = document.createElement("a");
     elem.href = mrand;
     elem.text = "Random";
-    elem.setAttribute("class", "btn btn-tall btn-primary btn-block bigfont");
+    elem.setAttribute("class", "btn btn-tall btn-primary btn-block");
     document.getElementById("randm").appendChild(elem);
   </script>
   <div class="col-xs-4 bigfont-column" id="latestm"></div>
@@ -44,7 +44,7 @@ category: metazoa
     var elem = document.createElement("a");
     elem.href = mlatest;
     elem.text = "Latest";
-    elem.setAttribute("class", "btn btn-tall btn-primary btn-block bigfont");
+    elem.setAttribute("class", "btn btn-tall btn-primary btn-block");
     document.getElementById("latestm").appendChild(elem);
   </script>
 </div>
