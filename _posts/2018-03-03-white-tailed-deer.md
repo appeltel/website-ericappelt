@@ -3,8 +3,8 @@ layout: photopost
 title: White-Tailed Deer
 category: metazoa
 mclass: Mammalia
+mimage: 20180303_white_tail_deer_small.jpg
 ---
 
-![White-Tailed Deer](/images/metazoa/20180303_white_tail_deer_small.jpg){: .img-responsive .center-block .framed-image}
 
 Taken at Radnor Lake State Park, Tennessee.

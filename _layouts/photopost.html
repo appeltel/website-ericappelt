@@ -10,8 +10,11 @@
         <div class="col-xs-12 photolead">
           <p class="lead">{{ page.title }} - {{ page.date | date: "%B %d, %Y" }}</p>
         </div>
-        <div class="col-xs-12 col-md-10 col-md-push-1 blogpost" id="thepost"> 
-            {{ content }}
+        <div class="col-xs-12 col-md-10 col-md-push-1 blogpost" id="thepost">
+
+          <img src="/images/metazoa/{{ page.mimage }}" alt="{{page.title}}" class="img-responsive center-block framed-image" />
+
+          {{ content }}
         </div>
         <div class="col-xs-6 col-md-1 col-md-pull-10 buttonbox text-left"> 
           {% if page.next_in_category != nil %}

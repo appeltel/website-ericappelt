@@ -3,9 +3,9 @@ layout: photopost
 title: Northern Flicker
 category: metazoa
 mclass: Aves
+mimage: 20180114_northern_flicker_s.jpg
 ---
 
-![Northern Flicker](/images/metazoa/20180114_northern_flicker_s.jpg){: .img-responsive .center-block .framed-image}
 
 Taken in my backyard, Nashville, Tennessee.
 

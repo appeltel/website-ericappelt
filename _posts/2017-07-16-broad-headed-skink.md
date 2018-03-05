@@ -3,8 +3,8 @@ layout: photopost
 title: Broad Headed Skink
 category: metazoa
 mclass: Lepidosauria
+mimage: 20170716_broad_headed_skink_small.jpg
 ---
 
-![Broad Headed Skink](/images/metazoa/20170716_broad_headed_skink_small.jpg){: .img-responsive .center-block .framed-image}
 
 Taken at Radnor Lake State Park, Tennessee.
