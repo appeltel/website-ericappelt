@@ -1,0 +1,11 @@
+<script>
+jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+    $(".clickable-row").css('cursor','pointer').hover(function(){ 
+        $(this).addClass('active'); 
+    });
+
+});
+</script>

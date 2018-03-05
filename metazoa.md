@@ -64,31 +64,57 @@ category: metazoa
 Here are a few of my most recent captures:
 </div>
 
-<div class="col-xs-12 hidden-xs bigfont-column" markdown="1"> 
-{% strip %}
-Preview | Title/Link | Date | Class/Superorder
---- | --- | --- | ---
+<div class="col-xs-12 hidden-xs bigfont-column"> 
+
+<table>
+<thead>
+<tr>
+<th>Preview</th>
+<th>Title</th>
+<th>Date</th>
+<th>Class/Superorder</th>
+</tr>
+</thead>
+<tbody>
 {% for post in site.categories[page.category] %}
-  {% if counter < maxPostCount %}
-    {% assign counter=counter | plus:1 %}
-![{{post.title}}](/images/metazoa_thumbs/{{post.mimage}}) | [{{ post.title }}]({{ post.url }}) | {{ post.date | date: "%B %d, %Y" }} | {{post.mclass}}
+{% if counter < maxPostCount %}
+{% assign counter=counter | plus:1 %}
+<tr class='clickable-row' data-href='{{post.url}}'>
+  <td><img src="/images/metazoa_thumbs/{{post.mimage}}" alt="{{post.title}}" /></td>
+  <td>{{ post.title }}</td>
+  <td>{{ post.date | date: "%B %d, %Y" }}</td>
+  <td>{{post.mclass}}</td>
+</tr>
   {% endif %}
 {% endfor %}
-{% endstrip %}
+</tbody>
+</table>
+
 </div>
 
 <div class="col-xs-12 visible-xs-block bigfont-column" markdown="1"> 
-{% strip %}
-Preview | Title/Link
---- | ---
+
+<table>
+<thead>
+<tr>
+<th>Preview</th>
+<th>Title</th>
+</tr>
+</thead>
+<tbody>
 {% assign counter=0 %}
 {% for post in site.categories[page.category] %}
-  {% if counter < maxPostCount %}
-    {% assign counter=counter | plus:1 %}
-![{{post.title}}](/images/metazoa_thumbs/{{post.mimage}}) | [{{ post.title }}]({{ post.url }}) 
+{% if counter < maxPostCount %}
+{% assign counter=counter | plus:1 %}
+<tr class='clickable-row' data-href='{{post.url}}'>
+  <td><img src="/images/metazoa_thumbs/{{post.mimage}}" alt="{{post.title}}" /></td>
+  <td>{{ post.title }}</td>
+</tr>
   {% endif %}
 {% endfor %}
-{% endstrip %}
+</tbody>
+</table>
+
 </div>
 
 <div class="col-xs-12 bigfont-column" markdown="1"> 
