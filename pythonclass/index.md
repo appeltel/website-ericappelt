@@ -74,3 +74,25 @@ encourage you to support the author by purchasing a copy if you have the means.
 
 * [Automate the Boring Stuff](https://automatetheboringstuff.com/)
 * [Learning Python](https://www.safaribooksonline.com/library/view/learning-python-5th/9781449355722/)
+
+## Prerequisites and Getting Started
+
+## Course Material
+
+Descriptions, suggested exercises, and suggested readings are given
+for each session. Where the readings correspond well to the session content,
+they are marked with an asterisk. Session notes may be posted before or after the
+session. While my notes may be helpful, they are not intended as a stand-alone
+replacement for attending each session.
+
+#### Session 1: Language Basics
+
+Suggested Readings:
+
+* Automate Stuff: Chapters 0\*, 1\*, and 2\*
+* Learning Python: Chapters 4\*, 5\*, 6\*, 7\* (especially 6)
+
+Suggested Exercises:
+
+* Write a program to take an integer that the user inputs and print the corresponding [Fibonacci Number](https://en.wikipedia.org/wiki/Fibonacci_number). The Fibonacci sequence begins 1, 1, 2, 3, 5, 8, 13, so if the user inputs 7, the user should see the 7th Fibonacci number printed, which is 13. If the user inputs a negative number the program should print an error message.
+* Write a program to convert temperatures from Fahrenheit to Celsius or vice versa. Have the user select which one from a menu (use a triple-quoted string to make the menu text) or quit from the program. Use a while loop to allow the user to convert multiple values.
