@@ -29,3 +29,22 @@ the main focus of the course is building a solid foundation in the
 core language itself. I believe that once one has such a foundation,
 an enterprising researcher will be well positioned to further
 learn libraries and tools on their own.
+
+## Course Format
+
+The course will consist of 75 minute interactive sessions. In these,
+I will present concepts and interactively explore them on the python
+interpreter while course attendees follow along on their own laptops,
+allowing each student to try variations on their own. It is my hope
+and expectation that this exploration is frequently interrupted by
+questions about the examples which we will further investigate. I will
+leave ample room in the material to accommodate such investigation.
+
+I will assign exercises to be worked on between course sessions, and
+optional readings from two selected textbooks. There will be no formal
+evaluations, but I hope that students will find the exercises useful and
+I will make myself available to help with the exercises.
+
+## Time and Location
+
+
