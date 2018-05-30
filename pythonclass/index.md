@@ -108,96 +108,12 @@ includes many useful scientific libraries already.
 ## Course Material
 
 Descriptions, suggested exercises, and suggested readings are given
-for each session. Where the readings correspond well to the session content,
-they are marked with an asterisk. Session notes may be posted before or after the
+in each session page . Where the readings correspond well to the session
+content, they are marked with an asterisk. Session notes
+may be posted before or after the
 session. While my notes may be helpful, they are not intended as a stand-alone
 replacement for attending each session.
 
-#### Session 1: Language Basics
-
-Suggested Readings:
-
-* Automate Stuff: Chapters 0\*, 1\*, and 2\*
-* Learning Python: Chapters 4\*, 5\*, 6\*, 7\* (especially 6)
-
-Suggested Exercises:
-
-* Write a program to take an integer that the user inputs and print
-  the corresponding
-  [Fibonacci Number](https://en.wikipedia.org/wiki/Fibonacci_number).
-  The Fibonacci sequence begins 1, 1, 2, 3, 5, 8, 13, so if the user
-  inputs 7, the user should see the 7th Fibonacci number printed,
-  which is 13. If the user inputs a negative number the program should
-  print an error message.
-* Write a program to convert temperatures from Fahrenheit to Celsius or
-  vice versa. Have the user select which one from a menu
-  (use a triple-quoted string to make the menu text) or quit from the
-  program. Use a while loop to allow the user to convert multiple values.
-
-#### Session 2: Iterators and Sequences
-
-Suggested Readings:
-
-* Automate Stuff: Chapters 3, 4\*
-* Learning Python: Chapters 8\*, 9\*
-
-Suggested Exercises:
-
-* Do the "Character Picture Grid" project in Automate Stuff Chapter 4.
-  Note that `print("Hello World!", end="")` will print the string `Hello World!`
-  without a newline.
-* Do the "Comma Code" project in Automate Stuff Chapter 4, but don't worry about
-  writing a function as we haven't gone over it yet.
-  Just write code to handle the example string.
-
-#### Session 3: Strings, Bytes, and Files
-
-Suggested Readings:
-
-* Automate Stuff: Chapters 5, 6\*, 7
-* Learning Python: Chapters 10, 11, 12
-
-Suggested Exercises:
-
-* Save the csv content below into a file. This information is the
-  last name, first name, and age of employees of an imaginary company,
-  animals.com. Write a script to read in the csv file and then write a
-  new file with all the information as well as a fourth column with the
-  email address of each employee. The email address of an employee is
-  comprised of their last name (up to the first seven letters, all
-  lowercase) followed by the first letter of their first name (lowercase)
-  at animals.com. For example, I am Eric Appelt and my email would
-  be `appelte@animals.com`. Ada Lovelace would be `lovelaca@animals.com`.
-
-{% highlight text %}
-Aardvark,Alice,27
-Badger,Bob,44
-Catfish,Cynthia,32
-Dingo,Drew,61
-Elephant,Emily,24
-Frog,Ferdinand,41
-Gerbil,Greta,33
-Heron,Harold,19
-Iguana,Isabella,29
-Jaguar,John,61
-Kangaroo,Kate,63
-Lemur,Leonard,54
-Millipede,Marsha,47
-Newt,Norman,21
-Octopus,Olivia,42
-Pelican,Peter,29
-Quail,Quinlan,30
-Raccoon,Rocky,50
-Salamander,Stacy,36
-Termite,Terrence,20
-Uakari,Ursula,27
-Vulture,Vincent,61
-Warthog,Wanda,50
-Xenops,Xavier,21
-Yak,Yolanda,44
-Zebra,Zackery,49
-{% endhighlight %}
-
-* Do the table printer project in chapter 6 of automate the boring stuff
-  (it doesn't need to be a function, just a script to process the example
-  list).
+1. [Language Basics](session1.html)
+1. [Iterators and Sequences](session2.html)
+1. [Strings, Bytes, and Files](session3.html)
