@@ -47,4 +47,12 @@ I will make myself available to help with the exercises.
 
 ## Time and Location
 
+The course will take place during the Vanderbilt Summer Semester from
+June 5th to August 10th (2018) every Tuesday and Thursday from
+9:00 to 10:15 AM.
+
+The physical location is the main conference room in the
+[ACCRE Suite](https://www.vanderbilt.edu/accre/location/) in the
+Hill Center.
+
 
