@@ -117,3 +117,28 @@ replacement for attending each session.
 1. [Language Basics](session1.html)
 1. [Iterators and Sequences](session2.html)
 1. [Strings, Bytes, and Files](session3.html)
+1. Sets and Dictionaries
+1. Functions
+1. Exceptions and Context Managers
+1. Modules, Dates, and OS Functions
+1. Packages, PyPI, and Unit Testing
+1. Literate Programming and Jupyter Notebooks
+1. Classes I
+1. Classes II
+1. Iteration Protocol, Generators, Sequences
+1. Functional Programming, Lambdas, and Decorators
+1. Writing a Distributable Package
+1. Python Performance, Multithreading, Multiprocessing
+1. Intro to Numpy
+1. Intro to Pandas
+
+# License
+
+![CC BY-SA](license.png) This course content is licensed under a 
+[Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
+You may republish or adapt this material for educational purposes, as
+long as proper credit is given. Our recommended credit includes the statement:
+Written by, or adapted from, Eric Appelt and the Vanderbilt University
+Advanced Computing Center for Research and Education (current as of .....).
+If you remix, transform, or build upon the material, you must
+distribute your contributions under the same license as the original.
