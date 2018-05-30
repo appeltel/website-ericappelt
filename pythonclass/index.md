@@ -55,4 +55,22 @@ The physical location is the main conference room in the
 [ACCRE Suite](https://www.vanderbilt.edu/accre/location/) in the
 Hill Center.
 
+## Accompanying Texts
 
+I have selected two suggested textbooks to accompany the course for students
+who wish to dive further into python. One book, "Automate The Boring Stuff",
+takes a lighthearted and very practical approach, and will introduce the reader
+to some very useful libraries not covered in the sessions. The other,
+"Learning Python", is a more traditional and thorough treatment of the language.
+
+Although neither text follows the exact presentation of the language in the order
+the course sessions introduce concepts, they are close enough that
+I was able to choose selected readings that often correspond to the
+material in the most recent session.
+
+These textbooks are avaialable online for free or through Vanderbilt's Safari
+subscription. If you find "Automate The Boring Stuff" particularly useful, I
+encourage you to support the author by purchasing a copy if you have the means.
+
+* [Automate the Boring Stuff](https://automatetheboringstuff.com/)
+* [Learning Python](https://www.safaribooksonline.com/library/view/learning-python-5th/9781449355722/)
