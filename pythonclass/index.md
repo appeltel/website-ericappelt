@@ -117,8 +117,8 @@ replacement for attending each session.
 1. [Language Basics](session1.html)
 1. [Iterators and Sequences](session2.html)
 1. [Strings, Bytes, and Files](session3.html)
-1. Sets and Dictionaries
-1. Functions
+1. [Sets and Dictionaries](session4.html)
+1. [Functions](session5.html)
 1. Exceptions and Context Managers
 1. Modules, Dates, and OS Functions
 1. Packages, PyPI, and Unit Testing

@@ -5,12 +5,12 @@ title: Session 1
 
 # Language Basics
 
-### Suggested Readings:
+### Suggested Readings
 
 * Automate Stuff: Chapters 0\*, 1\*, and 2\*
 * Learning Python: Chapters 4\*, 5\*, 6\*, 7\* (especially 6)
 
-### Suggested Exercises:
+### Suggested Exercises
 
 * Write a program to take an integer that the user inputs and print
   the corresponding
