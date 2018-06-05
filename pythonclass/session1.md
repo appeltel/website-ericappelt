@@ -42,6 +42,7 @@ title: Session 1
 * Great community - mention [PyTN](https://www.pytennessee.org/), [PyOhio](https://www.pyohio.org/2018/)
 * "Batteries Included" - lots of great standard libraries - `import antigravity`
 * Python2 vs 3 - 2 is basically deprecated, support ends in 2020, this is a python3 class
+* Community style guide - [PEP8](https://www.python.org/dev/peps/pep-0008/)
 
 #### Objects (start with arithmetic)
 
@@ -116,3 +117,74 @@ print(a)
 * Empty string - `''`
 * Mention python 2 vs python 3 here - in python 2 strings were arrays of bytes
 
+#### Calling Functions
+
+* functions take expressions as parameters separated by commas.
+* Parameters can be positional or named, positional parameters must come first
+* Some examples:
+  * `print('Hello World!')`
+  * `print('Hello ' + "World!")`
+  * `print('Hello World', end='?\n')`
+* [Builtin functions](https://docs.python.org/3/library/functions.html) (good thing to bookmark)
+* Functions *always* return an object
+  * do examples of `hex(...)`, `id(...)`, and `type(...)` builtin functions.
+* Functions can have a side effect, like `print()`.
+  * but what is the object returned by print???
+
+#### None
+
+* There is only one `None` object in memory of type `NoneType`
+* it is often used as a general purpose sentinel object
+* default return value of a function
+* _not_ printed on the REPL if the result of an expression statement
+  * Mention here the idea of an *expression statement*
+    an expression is evaluated, but nothing is done with the result
+
+#### More builtin functions
+
+* `help(...)`
+* General "casting" functions:
+  * `float(...)`
+  * `int(...)`
+  * `str(...)`
+* `repr(...)` - gives you either the code to make an object or a basic description `<...>`
+
+#### Booleans
+
+* `True` and `False`
+* `bool(...)` builtin - all objects can be evaluated as a boolean!!!
+* *TRUTHINESS*
+  * experiment with some types
+  * default truthiness of an object is `True`
+  * falsiness generally denotes numberical "zeroness" or for a container "emptyness"
+* Value comparisons - experiment with `<, >, <=, >=, !=, ==`
+  * discuss identity and equality
+    * `id(...)` operation and `is` comparison.
+  * comparisons can be chained
+    * evaluated left to right `a < b < c`
+    * "short circuit" example `1 > 2 > "foo"` versus `1 < 2 > "foo"`
+* discuss `and`, `or`, `not`
+
+#### Conditionals
+
+Basic form
+
+{% highlight python %} 
+
+if expression:
+    ...
+    ...
+elif expression:
+    ...
+    ...
+else expression:
+    ...
+    ...
+
+{% endhighlight %}
+
+Note: `expression` can be any valid python expression - will be converted to boolean!
+
+* INDENTATION!!! - suite of expressions in each clause is defined by indentation
+  * tabs or spaces can be used as long as they are used consistently
+  * 4 spaces is preferred!
