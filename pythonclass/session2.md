@@ -29,7 +29,7 @@ implement iteration protocol.
 Later we will go over how to use iteration protocol, for now a simple
 example is instructive:
 
-{% highlight python %}
+{% highlight pycon %}
 >>> s = 'hello'
 >>> itr = iter(s)
 >>> type(itr)
