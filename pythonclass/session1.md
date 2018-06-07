@@ -170,7 +170,6 @@ print(a)
 Basic form
 
 {% highlight python %} 
-
 if expression:
     ...
     ...
@@ -180,7 +179,6 @@ elif expression:
 else:
     ...
     ...
-
 {% endhighlight %}
 
 Note: `expression` can be any valid python expression - will be converted to boolean!
@@ -197,12 +195,10 @@ Note: `expression` can be any valid python expression - will be converted to boo
 Basic form
 
 {% highlight python %} 
-
 while expression:
     ...
     ...
     ...
-
 {% endhighlight %}
 
 * Executes suite of indented statements as long as expression evaluates to
