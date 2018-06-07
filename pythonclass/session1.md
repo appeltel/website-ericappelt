@@ -177,7 +177,7 @@ if expression:
 elif expression:
     ...
     ...
-else expression:
+else:
     ...
     ...
 
@@ -188,3 +188,33 @@ Note: `expression` can be any valid python expression - will be converted to boo
 * INDENTATION!!! - suite of expressions in each clause is defined by indentation
   * tabs or spaces can be used as long as they are used consistently
   * 4 spaces is preferred!
+
+* Do a few examples here with correct and incorrect indentation, also
+  ones that rely on the truthiness of various expressions.
+
+#### While statements
+
+Basic form
+
+{% highlight python %} 
+
+while expression:
+    ...
+    ...
+    ...
+
+{% endhighlight %}
+
+* Executes suite of indented statements as long as expression evaluates to
+  true
+
+* Do examples with nested indentation, if statements
+* Discuss *continue* and *break* statements with examples.
+  * continue - stop current execution os suite and go back to top
+  * break - stop current execution and exit the loop
+
+* Discuss scope (or lack thereof so far) - in python compound statements
+  like while and if do not create scope. A name bound within a while or if
+  clause stays bound outside clause.
+  * Mention `locals()` and `globals()` builtin to get a dictionary (explained
+    later) of bound names and their objects
