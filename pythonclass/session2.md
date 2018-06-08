@@ -186,6 +186,42 @@ function which will iterate over the list and make a new one with the contents o
 False
 {% endhighlight %}
 
+#### Tuples
+
+Tuples are similar to lists, but they are *immutable*. Once you make a tuple, you can
+never change what objects are contained in it. The beauty of this is that as a developer, you never
+need to really care if you are working with the same tuple or a copy of a tuple - the results
+would never be different!
+
+A tuple is constructed like a list but using parenthesis instead of brackets:
+
+{% highlight python %}
+mytuple = (1, 2, 3, 'foo')
+{% endhighlight %}
+
+Notice that parenthesis are also used to enclose expressions. So how does the intepreter
+distinguish between parenthesis around an expression and a tuple definition? It's the presence of
+a comma that determines a tuple. So to make a tuple of one object, you need a trailing comma:
+
+{% highlight pycon %}
+>>> (1, )  # a tuple containing a single object 1
+(1,)
+>>> (1)  # this is just the integer 1
+1
+>>> ()  # this special case is an empty tuple
+()
+{% endhighlight %}
+
+Note the special case of `()`. If you enclose nothing inside parenthesis, you have made an
+empty tuple.
+
+For both lists and tuples, you can use the `+` operator to add together multiple lists (or tuples).
+Try it! Also try adding a list to a tuple and see what happens. Note that it is ok to add tuples
+even though they are immutable since the result is a new tuple.
+
+The `*` operator is also defined for multiplying a list or tuple by an integer, much like a string,
+try it!
+
 #### Sequences
 
 Ranges, lists, and tuples are all examples of *sequence types*, see [sequences](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range).
@@ -204,3 +240,5 @@ Looking up items by position (or index)  in a sequence type is done with *subscr
 
 Notice you can use a negative number to count backwards from the end. If the index is out of
 range you will raise an `IndexError`.
+
+
