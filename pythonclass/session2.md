@@ -241,4 +241,68 @@ Looking up items by position (or index)  in a sequence type is done with *subscr
 Notice you can use a negative number to count backwards from the end. If the index is out of
 range you will raise an `IndexError`.
 
+The `len()` builtin-function will return the length of a sequence.
+
+#### Mutable sequences
+
+A `list` is a mutable sequence, while strings and tuples are immutable
+sequences. Mutable sequences allow additional operations.
+
+* You can assign an object to a sequence position with an assignment
+  statement with a subscript: `mylist[3] = 4`
+* You can delete a position with a delete statement including a subscript:
+  `del mylist[3]`. Try this and notice how the other elements shift position.
+* You can insert a new element at a given position with the `insert` method,
+  for example `mylist.insert(2, 15)`. Notice how this shifts element
+  positions.
+* The `pop` and `append` methods for list also apply to all mutable sequences.
+* You can use the `extend` method to append another list (or the elements
+  of any iterable) to the end of a sequence. Try extending a list with another
+  list, a tuple, and then a string.
+
+#### List Comprehensions
+
+List comprehensions are a powerful, "pythonic" way to create a list
+based on an existing iterable.
+
+General syntax:
+
+{% highlight python %}
+mylist = ["expression" for "name" in "iterable" if "expression"]
+{% endhighlight %}
+
+One example, making a list of all the squares of odd numbers from 1 to 100.
+You can do this with the `append` method and a for loop:
+
+{% highlight python %}
+mylist = []
+for num in range(1, 101):
+    if num % 2 == 1:
+        mylist.append(num)
+{% endhighlight %}
+
+Or with a list comprehension as a single statement:
+
+{% highlight python %}
+mylist = [num**2 for num in range(1, 101) if num % 2 == 1]
+{% endhighlight %}
+
+Note that the if clause, or "filter" is optional, and you can have multiple
+if clauses if desired.
+
+* *STYLE NOTE*: List comprehensions are for _making lists_, not for general
+  use as an "inline for statement". An example of generally improper use is
+  `[print(line) for line in some_log_file]`
+  * This will make a list in memory of repeated references to `None` while
+    also printing to the screen, and then throw that list away. Just use a
+    for loop!
+
+* *STYLE NOTE*: Everything inside brackets `[]` can span multiple lines and
+  still be a single statement, so it is ok to allow a list comprehension to
+  use a few lines if needed. If things are really complicated, you might
+  find it more readable to make a for loop.
+  * The term "list incomprehension" is sometimes given to very long list
+    comprehensions that are very difficult to understand.
+
+#### Slices
 
