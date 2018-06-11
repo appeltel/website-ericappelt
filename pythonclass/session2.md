@@ -306,3 +306,66 @@ if clauses if desired.
 
 #### Slices
 
+Slicing can be though of as a variation on subscript notation.
+One takes a _slice_ of an existing sequence and creates a new sequence
+with just that slice of the contents.
+
+* Note: slicing never results in an `IndexError`. If the slice is
+  in some manner "out of range" it just results in an empty sequence.
+
+Basic Syntax:
+
+* `mysequence["start":"stop"]` *or* `mysequence["start":"stop":"step"]` where
+  start, stop, and step are integers.
+
+Examples:
+
+{% highlight pycon %}
+>>> seq = [0, 1, 2, 3, 4, 5, 6, 7]
+>>> seq[1:5]
+[1, 2, 3, 4]
+>>> seq[0:6]
+[0, 1, 2, 3, 4, 5]
+>>> seq[:6]
+[0, 1, 2, 3, 4, 5]
+>>> seq[4:]
+[4, 5, 6, 7]
+>>> seq[:-1]
+[0, 1, 2, 3, 4, 5, 6]
+>>> seq[:-3]
+[0, 1, 2, 3, 4]
+>>> seq[1:6:2]
+[1, 3, 5]
+>>> seq[6:1:-2]
+[6, 4, 2]
+>>> seq[::-1]
+[7, 6, 5, 4, 3, 2, 1, 0]
+>>> seq[:]
+[0, 1, 2, 3, 4, 5, 6, 7]
+{% endhighlight %}
+
+Note how you can leave out numbers to default to the first or last element.
+
+* `seq[:]` is sometimes used to produce a copy of a sequence
+* `seq[::-1]` is a handy way to produce a reversed sequence
+
+Try more examples and see if everyone can guess what will happen. Also watch
+what happens if you slice a string or a range object.
+
+#### Sorting
+
+Sequences can be sorted in several ways. In order to (easily) sort a
+sequence, the `<` operator must be defined for comparisons between any
+two elements of the sequence. There is a way to override that, but is a
+more advanced topic.
+
+For a *mutable* sequence, you can use the `sort()` method to sort the
+sequence in place, meaning that you alter the sequence.
+
+For any sequence, you can use the `sorted(...)` builtin function to create
+a new sequence that is a sorted copy of the input. Try both of these
+on lists and strings.
+
+Note that the default sorting implementation in python uses an algorithm
+called [Timsort](https://en.wikipedia.org/wiki/Timsort) which is a
+hybrid algorithm derived from merge sort and insertion sort.
