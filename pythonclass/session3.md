@@ -98,3 +98,105 @@ Try out some of these list attributes. For example the `count` method:
   * Example, try `help(mylist.reverse)`. Then use this to reverse a list.
 
 #### More on Strings  
+
+Strings have a lot of useful methods that one can discover with
+`dir()` and `help()`. Try some out:
+
+{% highlight pycon %}
+>>> s = '   Hello world!!!  '
+>>> [m for m in dir(s) if not m.startswith('__')]
+['capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isdecimal', 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> s.startswith('   H')
+True
+>>> s.endswith('!')
+False
+>>> s.lower()
+'   hello world!!!  '
+>>> s.upper()
+'   HELLO WORLD!!!  '
+>>> s.strip()
+'Hello world!!!'
+>>> s.strip().endswith('!')
+True
+>>> s.rjust(25)
+'         Hello world!!!  '
+>>> s.rjust(35)
+'                   Hello world!!!  '
+{% endhighlight %}
+
+Two very useful string methods are `split()` and `splitlines`
+
+* Do some examples
+
+{% highlight pycon %}
+>>> s = """
+... foo,  bar,
+... baz, 
+... spam   , eggs
+... 
+... """
+>>> [w.strip() for w in s.split(',')]
+['foo', 'bar', 'baz', 'spam', 'eggs']
+{% endhighlight %}
+
+Another key string method is `join()`:
+
+Join takes an iterable as an argument (assumed to contain strings) and
+joins them together into one string with the string object it is called
+from as a separator
+
+* Start by taking the result of the example above and feeding it to
+  `','.join(mylist)`
+* Try using the empty string `''.join(...)` to join a list of strings
+  without a separator
+
+PROTIP: To build up a big string, it is tempting to repeatedly use
+`mystring += more_text`. However, this can be sometimes hard to work with
+down the road, and has very poor performance (`O(n^2)`). The reason for the
+poor performance is that a new string is being created with each addition
+and the old string thrown away.
+
+A better way is to start a list of your string components and add more
+using `mylist.append(more_text)`. Then at the end use `''.join(mylist)` to
+create the final string. This also has the advantage that it's easy to insert
+or remove things while building the list compared to a partially built string.
+
+#### Format method
+
+Arguably the most important and useful string method is `format()`. Some
+examples of "format strings":
+
+{% highlight pycon %}
+>>> 'I had {} and {} for dinner'.format('spam', 'eggs')
+'I had spam and eggs for dinner'
+>>> 'I had {0} and {1} for dinner'.format('spam', 'eggs')
+'I had spam and eggs for dinner'
+>>> 'I had {1} and {0} for dinner'.format('spam', 'eggs')
+'I had eggs and spam for dinner'
+>>> 'I had {0} and {0}, and {0} for dinner'.format('spam', 'eggs')
+'I had spam and spam, and spam for dinner'
+{% endhighlight %}
+
+Now is a good time to mention *keyword parameters*. These allow you
+to specify function parameters by name rather than by position. This
+is very useful for functions with lots of parameters as you don't need
+to memorize the order of parameters:
+
+{% highlight pycon %}
+>>> 'I had {main} and {side} for dinner'.format(side='eggs', main='spam')
+'I had spam and eggs for dinner'
+{% endhighlight %}
+
+Numeric formatting is available for floats:
+
+{% highlight pycon %}
+>>> 'The total is ${0:.2f}'.format(31.74348)
+'The total is $31.74'
+>>> 'The temperature is {0:.2e}K '.format(1400.3729)
+'The temperature is 1.40e+03K '
+{% endhighlight %}
+
+A full description of the format "mini-language" is in the python
+[library reference](https://docs.python.org/3/library/string.html#formatstrings)
+
+#### Strings, Bytes, and ASCII - Some History
