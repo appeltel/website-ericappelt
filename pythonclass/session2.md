@@ -378,7 +378,7 @@ is:
 
 {% highlight python %}
 name, name, name = iterable_expression
-{% endlighlight %}
+{% endhighlight %}
 
 The way it works is that the expression on the right hand side must
 result in an iterable with as many items as there are names on the
