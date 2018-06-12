@@ -369,3 +369,30 @@ on lists and strings.
 Note that the default sorting implementation in python uses an algorithm
 called [Timsort](https://en.wikipedia.org/wiki/Timsort) which is a
 hybrid algorithm derived from merge sort and insertion sort.
+
+#### Swapping and target list assignments
+
+Python has a variation on the assignment statement where you can assign
+to a "target list" of several names in one statement, the general form
+is:
+
+{% highlight python %}
+name, name, name = iterable_expression
+{% endlighlight %}
+
+The way it works is that the expression on the right hand side must
+result in an iterable with as many items as there are names on the
+left hand side of the `=`. The interpreter will iterate over the iterable
+and assign each object to a name in order.
+
+One neat trick that you can do using this is to swap the values of two
+names without using an additional temporary name:
+
+{% highlight python %}
+a, b = b, a
+{% endhighlight %}
+
+The way this works is by creating a tuple on the right hand side first,
+then assigning to the target list. The tuple is then discarded.
+
+* Go over how this operation appears in memory with diagrams
