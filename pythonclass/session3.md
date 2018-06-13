@@ -244,7 +244,7 @@ You can even use non-whitespace, non-punctuation `utf-8` characters as
 variable names in python, although if your code is written in English
 you should stick to ASCII:
 
-{% highlight python $}
+{% highlight pycon $}
 το_φίδι = 'the snake'
 {% endhighlight %}
 
