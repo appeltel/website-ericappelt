@@ -200,3 +200,96 @@ A full description of the format "mini-language" is in the python
 [library reference](https://docs.python.org/3/library/string.html#formatstrings)
 
 #### Strings, Bytes, and ASCII - Some History
+
+* *ASCII* encodes only 127 "characters" in 7-bits. Typically encoded into
+  bytes with the first bit 0
+  * Example `A` is 65, of `0x41` in hexidecimal, or `0100 0001` in binary
+  * An ASCII text file would often be called a "plain text" file by
+    English speakers, and sometimes still is.
+
+* *Unicode* Encodes thousands of "characters" from various languages and
+  symbol sets as integers or "codepoints". However, for simplicity the
+  first 127 codepoints correspond exactly to ASCII characters.
+  * Example: Greek lowercase `φ` is codepoint `0x03C6`
+  * Example: Latin capital `A` is codepoint `0x0041`
+  * Unicode has to be encoded into bytes to be represented in memory,
+    and two old common encodings were `UTF-16` and `UTF-32` which would
+    use two or four bytes to encode codepoints. `UTF-32` is the simplest
+    as any existing codepoint can be encoded within four bytes.
+  * The `utf-8` encoding is newer and space saving but has become
+    ubiqutious on the web. For codepoints under 128 (ASCII), each
+    character is encoded in a single byte. The leading 0 on the byte
+    tells the computer that this is a single-character codepoint. Higher
+    codepoints are designated with a 1 in the leading bit, indicating that
+    multiple bytes are used for the current character.
+  * One nice thing about `utf-8` is that ASCII files are effectively valid
+    `utf-8` files as the valid ASCII bytes are all valid `utf-8` encodings
+    for the same character.
+  * Python3 uses `utf-8` as its default encoding
+
+Python strings are arrays of unicode codepoints. To be written to the
+screen, saved to a file, or transmitted over the network, they must be
+encoded as an array of *bytes*. Similarly, to be understood in python as
+a string, an array of *bytes* must be decoded into unicode codepoints.
+
+Note: Python3 source files are by default `utf-8` encoded. So you can
+use higher codepoints in the source and in the interpreter. The following
+is valid python:
+
+{% highlight python %}
+the_snake = 'το φίδι'
+{% endhighlight %}
+
+You can even use non-whitespace, non-punctuation `utf-8` characters as
+variable names in python, although if your code is written in English
+you should stick to ASCII:
+
+{% highlight python $}
+το_φίδι = 'the snake'
+{% endhighlight %}
+
+
+#### The bytes type
+
+A *byte* type is an immutable type, with many similarities to the
+*str* type and many of the same methods. Instead of being an array of
+codepoints, it is an array of bytes.
+
+You can make a bytes object by calling the encode method on a string, and
+supplying it with a "codec" to use to encode the codepoints:
+
+{% highlight pycon %}
+>>> s = 'το φίδι is Greek for "the snake"'
+>>> s
+'το φίδι is Greek for "the snake"'
+>>> s.encode('utf-8')
+b'\xcf\x84\xce\xbf \xcf\x86\xce\xaf\xce\xb4\xce\xb9 is Greek for "the snake"'
+>>> s.encode('utf-16')
+b'\xff\xfe\xc4\x03\xbf\x03 \x00\xc6\x03\xaf\x03\xb4\x03\xb9\x03 \x00i\x00s\x00 \x00G\x00r\x00e\x00e\x00k\x00 \x00f\x00o\x00r\x00 \x00"\x00t\x00h\x00e\x00 \x00s\x00n\x00a\x00k\x00e\x00"\x00'
+>>> s.encode('utf-32')
+b'\xff\xfe\x00\x00\xc4\x03\x00\x00\xbf\x03\x00\x00 \x00\x00\x00\xc6\x03\x00\x00\xaf\x03\x00\x00\xb4\x03\x00\x00\xb9\x03\x00\x00 \x00\x00\x00i\x00\x00\x00s\x00\x00\x00 \x00\x00\x00G\x00\x00\x00r\x00\x00\x00e\x00\x00\x00e\x00\x00\x00k\x00\x00\x00 \x00\x00\x00f\x00\x00\x00o\x00\x00\x00r\x00\x00\x00 \x00\x00\x00"\x00\x00\x00t\x00\x00\x00h\x00\x00\x00e\x00\x00\x00 \x00\x00\x00s\x00\x00\x00n\x00\x00\x00a\x00\x00\x00k\x00\x00\x00e\x00\x00\x00"\x00\x00\x00'
+>>> s.encode('ascii')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-1: ordinal not in range(128)
+{% endhighlight %}
+
+Notice that a bytes object displays the character if it is a printable ascii
+character but if not it uses the notation `\xcf` to state the byte in
+hexidecimal. Also notice that you can't encode to ASCII if the characters
+are not ASCII characters.
+
+You can make a byte object literal by preceding your text with a b. You can
+only put ASCII characters in a bytes literal, for values above 127 you must
+use the `\x00` notation:
+
+{% highlight pycon %}
+>>> mybytes = b'\xcf\x84\xce\xbf \xcf\x86\xce\xaf\xce\xb4\xce\xb9 means snake'
+>>> mybytes
+b'\xcf\x84\xce\xbf \xcf\x86\xce\xaf\xce\xb4\xce\xb9 means snake'
+>>> mybytes.decode('utf-8')
+'το φίδι means snake'
+{% endhighlight %}
+
+The `decode()` method on a bytes object will decode your bytes into
+unicode codepoints and return a string object.
