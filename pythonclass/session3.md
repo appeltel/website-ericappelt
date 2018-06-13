@@ -292,3 +292,119 @@ b'\xcf\x84\xce\xbf \xcf\x86\xce\xaf\xce\xb4\xce\xb9 means snake'
 
 The `decode()` method on a bytes object will decode your bytes into
 unicode codepoints and return a string object.
+
+* Try running `dir(...)` on a bytes object to see what methods it has
+  * note that many are the same as str
+  * try using the `hex()` method
+  * Try making a bytes object using `bytes.fromhex(...)`
+
+* note how accessing an index value of a bytes object returns an integer
+  * try looping over a bytes object
+
+#### Bytearrays
+
+A *bytearray* is like a *bytes* object, but mutable.
+
+* Try making a bytearray from a bytes literal:
+
+{% highlight pycon %}
+>>> myba = bytearray(b'the snake')
+>>> myba.append(65)
+>>> myba.append(65)
+>>> myba
+bytearray(b'the snakeAA')
+{% endhighlight %}
+
+#### Streams (files)
+
+In python, files can be opened into a class of object types called
+*streams*. In most cases, casual python users will only encounter streams
+in the form of open file handles, but it is useful to know that this
+is a more general "family" of types, like iterables or sequences.
+
+You can create a stream by using the `open(...)` builtin function to
+open a file for reading. Streams are iterables, and iterating over an
+open file will read individual lines:
+
+```
+>>> stream = open('groceries.txt')
+>>> for line in stream:
+...     print('read line: "{}"'.format(line))
+... 
+read line: "apples
+"
+read line: "oranges
+"
+read line: "toothpaste
+"
+read line: "soap
+"
+```
+
+Notice how the `\n` character is present at the end of each line.
+If you don't want that printed, use `strip()`.
+
+Iterating again will return nothing as the stream has reached the end of
+the file. Streams have a position, which you can learn by calling
+`stream.tell()`. You can use `stream.seek(0)` to return to the beginning
+of the file.
+
+Some useful methods:
+
+* `read()` will return the whole file (as a string)
+* `readline()` will return a line and advance the stream
+* `readlines()` will return a list of all the lines
+* `close()` will close the file handle
+
+* General `open` sytax:  `open("path", "mode")`.
+  * The mode parameter is optional, and defaults to read-only in
+    "text" mode which interprets the file as UTF-8.
+  * By setting the mode to 'rb' you can read a file as bytes (try it!)
+  * 'w' or 'wb' will open the file for writing (binary)
+  * 'a' or 'ab' will open the file for appending (binary)
+
+Try opening the grocery file in append or write mode and using
+the `write(...)` and `writelines(...)` methods. Note the newline
+behavior for `writelines`.
+
+
+Some (POSIX) only hints:
+
+You can access the default file handles, STDOUT, STDERR, and STDIN
+as stream objects:
+
+```
+>>> import sys
+>>> sys.stdout.write('Hello World!\n')
+Hello World!
+13
+```
+
+#### One final extra - the enumerate builtin
+
+Sometimes you want to iterate over a list of other object and access
+not only each value but the index of each value as you iterate.
+This can result in code like the following:
+
+```
+>>> mylist = ['foo', 'bar', 'baz']
+>>> for idx in range(len(mylist)):
+...     val = mylist[idx]
+...     print('Element {} is {}'.format(idx, val))
+... 
+Element 0 is foo
+Element 1 is bar
+Element 2 is baz
+```
+
+However, with the `enumerate` built-in function, you can more
+easily iterate over the values of a list and their indices:
+
+```
+>>> for idx, val in enumerate(mylist):
+...     print('Element {} is {}'.format(idx, val))
+... 
+Element 0 is foo
+Element 1 is bar
+Element 2 is baz
+``` 
