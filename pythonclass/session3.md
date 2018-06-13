@@ -244,10 +244,9 @@ You can even use non-whitespace, non-punctuation `utf-8` characters as
 variable names in python, although if your code is written in English
 you should stick to ASCII:
 
-{% highlight pycon $}
+```
 το_φίδι = 'the snake'
-{% endhighlight %}
-
+```
 
 #### The bytes type
 
@@ -258,7 +257,7 @@ codepoints, it is an array of bytes.
 You can make a bytes object by calling the encode method on a string, and
 supplying it with a "codec" to use to encode the codepoints:
 
-{% highlight pycon %}
+```
 >>> s = 'το φίδι is Greek for "the snake"'
 >>> s
 'το φίδι is Greek for "the snake"'
@@ -272,7 +271,7 @@ b'\xff\xfe\x00\x00\xc4\x03\x00\x00\xbf\x03\x00\x00 \x00\x00\x00\xc6\x03\x00\x00\
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-1: ordinal not in range(128)
-{% endhighlight %}
+```
 
 Notice that a bytes object displays the character if it is a printable ascii
 character but if not it uses the notation `\xcf` to state the byte in
@@ -283,13 +282,13 @@ You can make a byte object literal by preceding your text with a b. You can
 only put ASCII characters in a bytes literal, for values above 127 you must
 use the `\x00` notation:
 
-{% highlight pycon %}
+```
 >>> mybytes = b'\xcf\x84\xce\xbf \xcf\x86\xce\xaf\xce\xb4\xce\xb9 means snake'
 >>> mybytes
 b'\xcf\x84\xce\xbf \xcf\x86\xce\xaf\xce\xb4\xce\xb9 means snake'
 >>> mybytes.decode('utf-8')
 'το φίδι means snake'
-{% endhighlight %}
+```
 
 The `decode()` method on a bytes object will decode your bytes into
 unicode codepoints and return a string object.
