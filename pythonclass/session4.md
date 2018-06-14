@@ -110,4 +110,51 @@ How to make a set:
 
 * From a literal (using curly braces): `myset = {1, 2, 'spam'}`
 * From the built in set function: `myset = set(<iterable>)`  
+  * Example `myset = set([1, 1, 2, 3, 3, 4])` - this is good for filtering duplicates
+* Using a set comprehension: `myset = {x**2 % 100 for x in range(50)}`
+  * try doing a `len(myset)` on this.
 
+Warning: `{}` does not create an empty set. This creates an empty dictionary (explained later).
+To make an empty set use `set()`.
+
+Membership testing:
+
+* `<value> in `<set>` --> `True/False`
+* `<value> not in `<set>` --> `True/False`
+
+Do examples.
+
+This is fast for big sets as sets are implemented as hash tables, slower for big lists
+
+Some set methods (do examples):
+
+* `add(...)`
+* `remove(...)`
+* `discard(...)`
+* `update(...)`
+
+Set operations (mathematical - do examples):
+
+* Subset comparison `<, >, <=, >=`
+* Union `myset | otherset` or `myset.union(otherset)`
+* Intersection `myset & otherset` or `myset.intersection(otherset)`
+* Difference `myset - otherset` or `myset.difference(otherset)`
+* symmetric difference `myset ^ otherset` or `myset.symmetric_difference(otherset)`
+
+#### Frozensets
+
+A *frozenset* is like a set but immutable (and therefore hashable!).
+
+Make one with the `frozenset(<iterable>)` buitin function.
+
+#### Mapping types (dicts)
+
+The python *dict* type is a built-in example of a mapping type. Internally, a dict works much
+like an extension of a set, only each element of a dict is called a *key* and has a corresponding
+*value*. The keys of a dict must be hashable, but values can be any object.
+
+Making a dict (literal):
+
+{% highlight python %}
+mydict = {"spam": True, "eggs": False, 12: ['a', 'b', 'c']}
+{% endhighlight %}
