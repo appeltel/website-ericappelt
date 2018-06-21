@@ -119,8 +119,8 @@ To make an empty set use `set()`.
 
 Membership testing:
 
-* `<value> in `<set>` --> `True/False`
-* `<value> not in `<set>` --> `True/False`
+* `<value> in <set>` --> `True/False`
+* `<value> not in <set>` --> `True/False`
 
 Do examples.
 
@@ -158,3 +158,151 @@ Making a dict (literal):
 {% highlight python %}
 mydict = {"spam": True, "eggs": False, 12: ['a', 'b', 'c']}
 {% endhighlight %}
+
+Items in a mapping type are accessed by subscript, like a sequence, but the
+subscript is a key rather than strictly an integer:
+
+```
+>>> mydict = {"spam": True, "eggs": False, 12: ['a', 'b', 'c']}
+>>> mydict['spam']
+True
+```
+
+Membership tests check for the existence of a key in a dict. Since dicts
+are hash tables, this check is *fast*:
+
+```
+>>> mydict = {"spam": True, "eggs": False, 12: ['a', 'b', 'c']}
+>>> 'spam' in mydict
+True
+>>> 'foo' in mydict
+False
+```
+
+Dicts are *mutable* so you can assign to a key (new or existing) by
+subscript and use the `del` statement:
+
+```
+>>> mydict = {"spam": True, "eggs": False, 12: ['a', 'b', 'c']}
+>>> mydict['spam'] = 2.5
+>>> mydict['spam']
+2.5
+>>> 'foo' in mydict
+False
+>>> mydict['foo'] = 1
+>>> 'foo' in mydict
+True
+>>> del mydict['foo']
+>>> 'foo' in mydict
+False
+```
+
+Trying to access a non-existent key in a dict will raise a `KeyError`. You
+can use the `get` method to try to get a value from a key that may not exist
+which will return `None` if the specified key does not exist, or you can
+provide a default value to be returned:
+
+```
+>>> mydict = {"spam": True, "eggs": False, 12: ['a', 'b', 'c']}
+>>> mydict['foo']
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'foo'
+>>> mydict.get('foo')
+>>> mydict.get('foo', False)
+False
+```
+
+#### Iterating over a dict, view objects
+
+Mapping types are generally iterable, and will iterate over their keys
+
+```
+>>> mydict = {"spam": True, "eggs": False, 12: ['a', 'b', 'c']}
+>>> for key in mydict:
+...     print(key)
+... 
+spam
+eggs
+12
+```
+
+Note that there is no general guarantee to order to a dict, although in
+CPython 3.6 and later dicts will maintain an order of keys.
+
+Dict "view" objects provide iterables to *dynamically* return keys or
+values or both. If a dict is updated in the process of iteration they
+will be updated as well.
+
+```
+>>> mydict = {'foo': 1, 'bar': 2, 'baz': 3}
+>>> for key in mydict.keys():
+...     print(key)
+... 
+foo
+bar
+baz
+>>> for val in mydict.values():
+...     print(val)
+... 
+1
+2
+3
+>>> for pair in mydict.items():
+...     print(pair)
+... 
+('foo', 1)
+('bar', 2)
+('baz', 3)
+```
+
+Here's an example of the dynamic updating at work:
+
+```
+>>> mydict = {'foo': 1, 'bar': 2, 'baz': 3}
+>>> for val in mydict.values():
+...     mydict['baz'] += 1
+...     print(val)
+... 
+1
+2
+5
+```
+
+*WARNING*: You should not add or remove keys from a dictionary during
+iteration. This can cause unexpected errors:
+
+```
+>>> mydict = {'foo': 1, 'bar': 2, 'baz': 3}
+>>> for key, val in mydict.items():
+...     if key == 'foo':
+...         mydict['a'] = 0
+...     print((key, val))
+... 
+('foo', 1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+RuntimeError: dictionary changed size during iteration
+```
+
+If you need to modify a dict during iteration, you should iterate over
+a copy
+
+*WARNING*: You should not add or remove keys from a dictionary during
+iteration. This can cause unexpected errors:
+
+```
+>>> mydict = {'foo': 1, 'bar': 2, 'baz': 3}
+>>> for key, val in mydict.items():
+...     if key == 'foo':
+...         mydict['a'] = 0
+...     print((key, val))
+... 
+('foo', 1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+RuntimeError: dictionary changed size during iteration
+```
+
+If you need to modify a dict during iteration, you should iterate over
+a copy
