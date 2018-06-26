@@ -306,3 +306,52 @@ RuntimeError: dictionary changed size during iteration
 
 If you need to modify a dict during iteration, you should iterate over
 a copy
+
+#### Other ways to make a dict
+
+The `dict()` builtin function can take another mapping, such as a dict,
+as an argument, and make a new dict. This is useful for copying dicts.
+
+The `dict()` builtin can also take an iterable as an argument, but each
+that the iterable returns must itself be an iterable with exactly two items
+which will be unpacked into key value pairs:
+
+```
+>>> mylist = [('foo', 1), ('bar', 2), ('baz', 3)]
+>>> dict(mylist)
+{'foo': 1, 'bar': 2, 'baz': 3}
+```
+
+Finally, you can give the `dict()` builtin arbitrary keyword parameters
+which become key value pairs. This can even be combined with the above to
+copy and extend a dict:
+
+```
+>>> dict(spam=1, eggs=2)
+{'spam': 1, 'eggs': 2}
+>>> mylist = [('foo', 1), ('bar', 2), ('baz', 3)]
+>>> dict(mylist, spam=1, eggs=2)
+{'foo': 1, 'bar': 2, 'baz': 3, 'spam': 1, 'eggs': 2}
+```
+
+The last, and sometimes very useful, way to create a dict is with a
+dict comprehension. The sytax for this is very similar to a set or list
+comprehension:
+
+```
+{<expression>: <expression> for <item> in <iterable> if ...}
+```
+
+Notice that instead of a single expression to produce each item, you give
+a colon-separated pair of expressions to produce a key-value pair for the
+new dict.
+
+Examples:
+
+```
+>>> {x: ord(x) for x in 'Hello World!'}
+{'H': 72, 'e': 101, 'l': 108, 'o': 111, ' ': 32, 'W': 87, 'r': 114, 'd': 100, '!': 33}
+>>> mylist = [('apples', 2, 1.5), ('bananas', 30, 0.5), ('spam', 1, 2.5)]
+>>> {item: amount * unit_price for item, amount, unit_price in mylist} 
+{'apples': 3.0, 'bananas': 15.0, 'spam': 2.5}
+```
