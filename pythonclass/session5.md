@@ -22,3 +22,133 @@ title: Session 5
      C/K/F and prints a nicely formatted output of the temperatures to the screen
   * The main loop should prompt the user to input temperatures or quit and run
      a loop. The menu/prompt string should be a global constant.
+
+---
+
+### Session Notes
+
+#### Defining a function
+
+Fibonacci example:
+
+{% highlight python %}
+def fib(n):
+    """
+    Return the nth Fibonacci number
+    """
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+{% endhighlight %}
+
+* The `def` statement provides a function name that the new function object
+  will be bound to, and in parenthesis a comma separated list of parameters
+  that can be passed to the function.
+* An indented suite of statements follows to form the function body. These
+  are executed when the function is called
+* If the first statement in the suite is a string literal expression
+  statement, then this string becomes the function's docstring. Using a
+  docstring is an important way to document functions (more on this later)
+* One or more `return` statements may halt the function execution and return
+  an expression. If no expression is given, `None` is returned.
+* If a function suite ends without a return statement, the function returns
+  `None` by default. A function always returns *something*!
+
+#### Calling a Function
+
+* Try calling `fib` with `fib(4)`, `fib(8)`, `fib(n=7)` (keyword)
+* Also try `fib()`, `fib(4, 3)`, and `fib(a=7)` and observe errors.
+
+#### A bit on Variable Scope
+
+Prior to this session, there was no notion of variable scope. Once a name
+was bound to an object with assignment, it was bound everywhere until either
+reassigned or `del`ed. A function definition provides a local scope inside
+its suite of instructions. If a name is bound by assignment inside the function
+body, that becomes a *local name* that is completely separate from any
+corresponding *global name*.
+
+For example, notice how `fib` uses the names `n` and `a`. These are local
+to the function. If we bound `a` and `n` outside the function, these are
+separate global names and are not affected by the use of `n` and `a` inside
+the function body:
+
+```
+>>> a = 3
+>>> n = 7
+>>> fib(8)
+21
+>>> n
+7
+>>> a
+3
+```
+
+More on scope later!!!
+
+#### Parameter default values
+
+Python functions can have default values for parameters allowing these
+parameters to be *optionally* specified when the function is called.
+As an example, lets change the `fib` function to allow initial values for
+`fib(0)` and `fib(1)` to be specified for variations on the classic
+sequence:
+
+{% highlight python %}
+def fib(n, a=0, b=1):
+    """
+    Return the nth Fibonacci number
+    """
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+{% endhighlight %}
+
+Try calling this in various ways and see what happens:
+
+* `fib(8)`
+* `fib(8, a=2, b=2)`
+* `fib(8, b=2, a=2)`
+* `fib(8, a=2)`
+* `fib(8, 2)`
+* `fib(8, b=2)`
+
+#### Some Important Style / Engineering Suggestions
+
+* Use default values anywhere that they make sense. Never call functions
+  using more than a few (or even one!) positional parameter. Use keyword
+  parameters for readability and to avoid getting the order wrong.
+* Put most (even all!) of your code into functions. A script can just call
+  a `main()` function at the end to do the work. Make functions *small*,
+  focusing on a single task. Test functions interactively as you write them.
+
+#### Side Effects
+
+Functions can do more than just return a value. They can alter mutable
+objects, print to the screen, open files, and send data over the network.
+These are called side effects.
+
+Example:
+
+{% highlight python %}
+def extend_fib(target, n):
+    """
+    Extend the target list with the first n Fibonacci numbers
+    """
+    print('Extending target list')
+    target.extend([fib(x) for x in range(n)])
+{% endhighlight %}
+
+```
+>>> mylist = [1, 2, 3]
+>>> extend_fib(mylist, 5)
+Extending target list
+>>> mylist
+[1, 2, 3, 0, 1, 1, 2, 3]
+```
+
+*Style Suggestion*: A function is called "pure" if it has no side effects and
+the return value is always the same given the same inputs. Pure functions
+are easy to reason about, debug, and test. If you move most of your code
+into pure functions then you will become a happy person!
