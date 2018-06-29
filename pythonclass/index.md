@@ -119,8 +119,8 @@ replacement for attending each session.
 1. [Strings, Bytes, and Files](session3.html)
 1. [Sets and Dictionaries](session4.html)
 1. [Functions](session5.html)
-1. Exceptions and Context Managers
-1. Modules, Dates, and OS Functions
+1. [Exceptions, Logging, and Context Managers](session6.html)
+1. [Modules, Dates, and OS Functions](session7.html)
 1. Packages, PyPI, and Unit Testing
 1. Literate Programming and Jupyter Notebooks
 1. Classes I
