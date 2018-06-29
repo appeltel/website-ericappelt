@@ -152,3 +152,130 @@ Extending target list
 the return value is always the same given the same inputs. Pure functions
 are easy to reason about, debug, and test. If you move most of your code
 into pure functions then you will become a happy person!
+
+#### Return values and raising exceptions
+
+This is an example of a poorly written function that tries to return
+an error value when a negative number is passed to it:
+
+{% highlight python %}
+def fib(n, a=0, b=1):
+    """
+    Return the nth Fibonacci number
+    """
+    if n < 0:
+        return "Invalid negative number"
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+{% endhighlight %}
+
+While a bad idea, this function does illustrate how you can have multiple
+return statements. One good thing about this is that it avoids excessive
+nesting, it is at least better than this:
+
+{% highlight python %}
+def fib(n, a=0, b=1):
+    """
+    Return the nth Fibonacci number
+    """
+    if n < 0:
+        result = "Invalid negative number"
+    else:
+        for _ in range(n):
+            a, b = b, a + b
+        result = a
+    return result
+{% endhighlight %}
+
+However, in either form, returning a sentinel value to designate an error
+can have weird and unexpected effects. Consider some code that calls the
+function and tries to multiply the result by an integer:
+
+```
+>>> fib(-5) * 3
+'Invalid negative numberInvalid negative numberInvalid negative number'
+```
+
+This could result in very difficult to debug code. 
+
+*STYLE SUGGESTION*: Functions should always return the same type. Its ok
+to return different types if the input parameters were of different types,
+for example a function could return an int if passed an int, or a float if
+passed a float, but generally speaking, if a function takes input of a given
+type, than the specific value of the input should not change the return type.
+
+Sentinel values should also be avoided. We could have the `fib()` function
+return something like `-1` to designate an invalid input. However, if the
+consumer of the function is not careful to check for special values then
+they may handle the error inappropriately and the result might be hard to
+debug.
+
+A better and more "pythonic" approach is to raise an Exception when its not
+possible to return a valid result.
+
+Raising an exception distrupts the normal flow of execution. All statements
+are skipped until something "catches" the exception. Catching exceptions
+will be discussed in the next session. For now, allowing an exception to
+go uncaught is useful in that it supplies the end user with useful
+debugging information to report when an unexpected condition occurs.
+
+An uncaught exception will end a running python program and emit a stack
+trace, which outlines where in each function call the program was when the
+exception occurred. In the case of the interactive REPL, the exception will
+be caught by the REPL and the stack trace printed to the screen.
+
+Here is a better implementation of the function that raises an exception
+with a "raise" statement:
+
+{% highlight python %}
+def fib(n, a=0, b=1):
+    """
+    Return the nth Fibonacci number
+    """
+    if n < 0:
+        raise Exception("{} is a negative number.".format(n))
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+{% endhighlight %}
+
+Here is the exception being raised:
+```
+>>> fib(8)
+21
+>>> fib(-4)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "fib.py", line 6, in fib
+    raise Exception("{} is a negative number.".format(n))
+Exception: -4 is a negative number.
+```
+
+The stack trace explains exactly where the problem occurred, and if the
+exception is written to have a useful message, then it is easy to try to
+understand the bad state that led to the problem.
+
+`Exception` is a very generic exception type. Python provides a number
+of built-in exception types that can be raised as the situation dictates.
+Raising a more specific exception helps code that catches exceptions to
+decide what sort of error should be caught. The python library reference
+details these specific types. In this case a
+[ValueError](https://docs.python.org/3/library/exceptions.html#ValueError)
+is the appropriate exception to raise, as the issue is that the parameter
+was the correct type but an invalid value, and there is no more specific
+exception type to describe this problem. So here is a better version of the
+function:
+
+
+{% highlight python %}
+def fib(n, a=0, b=1):
+    """
+    Return the nth Fibonacci number
+    """
+    if n < 0:
+        raise ValueError("{} is a negative number.".format(n))
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+{% endhighlight %}
