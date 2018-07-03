@@ -374,4 +374,88 @@ mutate that object without needing to have a global statement:
 * A global statement is only required when a function needs to assign a
   new object to a global name.
 
+#### BEWARE MUTABLE DEFAULT PARAMETERS!!!
+
+One common mistake that causes strange bugs is using mutable objects as
+default parameters in function definitions. The problem is that default
+parameters are evaluated at the time the function is defined, not at the
+time the function is called.
+
+This means over the course of several function calls, a default parameter
+will always refer to the same object, and that object can change!
+
+As an example, consider a function `add_spam` that takes a list as an
+argument, appends the string `"spam"` to the list, and returns the list.
+One might want it to be able to be called with no list, and to simply
+default to an empty list. But this will cause odd behavior on repeated calls:
+
+```
+>>> def add_spam(groceries=[]):
+...     groceries.append('spam')
+...     return groceries
+... 
+>>> mylist = ['eggs']
+>>> add_spam(mylist)
+['eggs', 'spam']
+>>> mylist
+['eggs', 'spam']
+>>> add_spam()
+['spam']
+>>> add_spam()
+['spam', 'spam']
+>>> add_spam()
+['spam', 'spam', 'spam']
+```
+
+A better way to do this is to use `None` as a sentinel default, and if the
+parameter is `None`, then create a new list:
+
+```
+>>> mylist = ['eggs']
+>>> def add_spam(groceries=None):
+...     if groceries is None:
+...         groceries = []
+...     groceries.append('spam')
+...     return groceries
+... 
+>>> add_spam(mylist)
+['eggs', 'spam']
+>>> mylist
+['eggs', 'spam']
+>>> add_spam()
+['spam']
+>>> add_spam()
+['spam']
+>>> add_spam()
+['spam']
+``` 
+
+### Functions are first-class objects
+
+Functions in python are "regular" objects in that you can do anything
+with them that you could do with any other object, such as assigning a name
+to them, sticking them in a list, and so on.
+
+For example, I could make a list of functions and then call the list
+elements, or compare if two functions are "equal":
+
+```
+>>> def cube(x):
+...     return x**3
+... 
+>>> def square(x):
+...     return x**2
+... 
+>>> mylist = [square, cube]
+>>> mylist[0](4)
+16
+>>> mylist[1](4)
+64
+>>> cube == square
+False
+```
+
+We'll do more on this later on when functional programming techniques in
+python are explored.
+
 
