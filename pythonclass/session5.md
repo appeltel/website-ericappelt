@@ -430,7 +430,7 @@ parameter is `None`, then create a new list:
 ['spam']
 ``` 
 
-### Functions are first-class objects
+#### Functions are first-class objects
 
 Functions in python are "regular" objects in that you can do anything
 with them that you could do with any other object, such as assigning a name
