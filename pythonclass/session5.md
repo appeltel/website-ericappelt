@@ -279,3 +279,99 @@ def fib(n, a=0, b=1):
         a, b = b, a + b
     return a
 {% endhighlight %}
+
+#### More on scope
+
+Functions can *access* global names and *alter* mutable objects that they
+refer to. It is generally common to use global names for constants that
+will not be modifed and to use ALL-CAPS for the name. Example:
+
+{% highlight python %}
+PI = 3.14
+
+def circle_area(radius):
+    return PI * r**2 
+{% endhighlight %}
+
+This valid function makes use of a global name `PI` inside the function
+body.
+
+However, if a function contains `PI` as a parameter or has `PI` as the
+target of an assignment statement within the function body, then `PI` is
+a local name inside the function call, and the global name `PI` is ignored
+by the function. For example:
+
+```
+>>> PI = 3.14
+>>> def circle_area(radius):
+...     PI = 4
+...     return PI * radius**2
+... 
+>>> circle_area(5)
+100
+>>> PI
+3.14
+```
+
+Note that in this function, `PI` *only* refers to the local name everywhere
+in the function body. If I try to reference `PI` inside this function before
+the assignment I will raise an exception:
+
+```
+>>> PI = 3.14
+>>> def circle_area(radius):
+...     print("PI is {}".format(PI))
+...     PI = 4
+...     return PI * radius**2
+... 
+>>> circle_area(5)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 2, in circle_area
+UnboundLocalError: local variable 'PI' referenced before assignment
+```
+
+If I really want `PI` to refer to the global name while inside the function
+body and I want to use an assignment statement to bind `PI` to a different
+object, then I can use a `global` statement to designate that `PI` should
+refer to the global name:
+
+```
+>>> PI = 3.14
+>>> def circle_area(radius):
+...     global PI
+...     print("PI is {}".format(PI))
+...     PI = 4
+...     return PI * radius**2
+... 
+>>> circle_area(5)
+PI is 3.14
+100
+>>> circle_area(5)
+PI is 4
+100
+>>> PI
+4
+```
+
+Use of the global statement is generally discouraged if it is avoidable, as
+it makes the function harder to reason about.
+
+Note that if a global name refers to a mutable object, a function can
+mutate that object without needing to have a global statement:
+
+```
+>>> spam = []
+>>> def add_spam():
+...     spam.append('spam')
+... 
+>>> add_spam()
+>>> add_spam()
+>>> spam
+['spam', 'spam']
+```
+
+* A global statement is only required when a function needs to assign a
+  new object to a global name.
+
+
