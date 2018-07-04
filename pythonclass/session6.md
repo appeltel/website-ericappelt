@@ -160,4 +160,111 @@ except Exception:  # ignore all errors
 In this case if there are unexpected errors then it will be very hard to
 debug problems as they are silently removed!
 
+#### Logging
 
+Python comes with a useful logging utility as part of the standard library.
+It allows one to create multiple "logger" objects, each with its own
+configuration in terms of how messages are formatted, where they go, and
+how verbose your program will be. Generally log messages have an associated
+"level" of DEBUG, INFO, WARNING, ERROR, and CRITICAL. You can configure your
+program to only log messages above a certain level, and change that level
+if you need to further debug.
+
+A good introduction is given in the
+[logging cookbook](https://docs.python.org/3/howto/logging-cookbook.html)
+in the official python documentation. Following this introduction, here is
+our Fibonacci program with added logging:
+
+{% highlight python %}
+import logging
+
+logger = logging.getLogger('fib')
+
+logger.setLevel(logging.DEBUG)
+
+ch = logging.StreamHandler()
+ch.setLevel(logging.CRITICAL)
+
+fh = logging.FileHandler('fib.log')
+fh.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter(
+    '%(asctime)s : %(name)s - %(levelname)s - %(message)s'
+)
+fh.setFormatter(formatter)
+ch.setFormatter(formatter)
+
+logger.addHandler(ch)
+logger.addHandler(fh)
+
+def fib(n, a=0, b=1):
+    """
+    Return the nth number in the Fibonacci sequence
+    """
+    if n < 0:
+        raise ValueError('Cannot accept a negative number: {}'.format(n))
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+try:
+    raw_num = input('Enter an integer: ')
+    logger.debug('The user entered a number: %s', raw_num)
+    num = int(raw_num)
+    result = fib(num)
+    print('The {}th Fibonacci Number is {}'.format(num, result))
+except ValueError:
+    logger.exception('An invalid number %s was entered', raw_num)
+    print('{} is not a positive integer'.format(raw_num))
+{% endhighlight %}
+
+* Try modifying the log level of each of the two handlers and run the
+  program, and note what is written to the `fib.log` file in each case.
+* Note that `logger.exception` is equivalent to ERROR in terms of level,
+  but unlike `logger.error` the exception method will print the stack trace
+  for the exception.
+* Try using info and warning level statements, and see how these appear in
+  the log.
+* Notice that the logging statements use a variation of the "old-style"
+  python formatting with a `%s` in the string and an additional argument for
+  the value. You can also use a format string, but the "old-style" usage is
+  preferred here as you don't want another exception being raised due to
+  a potentially failed format statement.
+
+#### A note about exception speed
+
+Exception handling is often considered slow. In the reference implementation
+of python (CPython), handling exceptions is not any slower than other
+language constructs. In fact, in cases where an exception is rarely raised
+a try/catch block will sometimes execute faster than an equivalent if/then.
+
+#### Context managers
+
+Basic syntax:
+
+```
+with <context manager> as <name>:
+    statement
+    statement
+    ...
+    statement
+```
+
+A context manager is an object used in a `with` statement. This statement
+will implicitly call a special `__enter__` function on the context manager
+object and return the result. When the with-block ends, either by normal
+execution or from an uncaught exception, the interpreter will *always* call
+a special `__exit__` statement allowing for cleanup.
+
+The `open(...)` builtin function is a good example of something that can
+be used as a context manager:
+
+{% highlight python %}
+with open('fib.log') as stream:
+    for line in stream:
+        print(line, end='')
+{% endhighlight %}
+
+The use of this construct ensures that your file will always be closed
+at the end of the block, so you don't need to worry about ensuring any
+cleanup with a try/finally block.
