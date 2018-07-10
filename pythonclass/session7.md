@@ -3,7 +3,7 @@ layout: blogpost
 title: Session 7
 ---
 
-# Modules, Dates, and OS Functions
+# Modules, Dates, OS Functions, and Virtual Environments
 
 ### Suggested Readings
 
