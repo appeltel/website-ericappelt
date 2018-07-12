@@ -1,9 +1,9 @@
 ---
 layout: blogpost
-title: Session 7
+title: Session 8
 ---
 
-# Packages and PyTest
+# Packages and Unit Testing
 
 ### Suggested Readings
 
