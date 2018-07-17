@@ -4,3 +4,6 @@ html
 
 # python stuff
 venv
+
+# MacOS crap
+**/.DS_Store
