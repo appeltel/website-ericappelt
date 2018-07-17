@@ -123,7 +123,7 @@ replacement for attending each session.
 1. [Modules, Dates, OS Functions, Virtual Environments](session7.html)
 1. [Packages and Unit Testing](session8.html)
 1. [Classes Part I](session9.html)
-1. Classes Part II
+1. [Classes Part II](session10.html)
 1. Iteration Protocol, Generators, Sequences
 1. Functional Programming, Lambdas, and Decorators
 1. Writing a Distributable Package
