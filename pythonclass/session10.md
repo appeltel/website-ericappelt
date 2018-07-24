@@ -40,3 +40,13 @@ title: Session 10
 ---
 
 ### Session Notes
+
+---
+
+### Preliminary Session Notes
+
+These are scanned, handwritten notes to be replaced with typed notes:
+
+* [Preliminary Session Notes](Python_lesson_10.pdf)
+
+I will keep these available until the typed and updated notes are complete.

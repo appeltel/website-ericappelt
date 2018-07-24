@@ -25,3 +25,13 @@ title: Session 9
 ---
 
 ### Session Notes
+
+---
+
+### Preliminary Session Notes
+
+These are scanned, handwritten notes to be replaced with typed notes:
+
+* [Preliminary Session Notes](Python_lesson_9.pdf)
+
+I will keep these available until the typed and updated notes are complete.
