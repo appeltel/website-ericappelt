@@ -95,3 +95,13 @@ def fib(n):
   * It binds the module object to the name of the module in your current
     namespace. With the module imported, you can access its namespace like
     you would any other object attribute, i.e. `smath.square(10)`.
+
+---
+
+### Preliminary Session Notes
+
+These are scanned, handwritten notes to be replaced with typed notes:
+
+* [Preliminary Session Notes](Python_lesson_7.pdf)
+
+I will keep these available until the typed and updated notes are complete.
