@@ -125,7 +125,7 @@ replacement for attending each session.
 1. [Classes Part I](session9.html)
 1. [Classes Part II](session10.html)
 1. [Iteration Protocol, Generators, Sequences](session11.html)
-1. Functional Programming, Lambdas, and Decorators
+1. [Functional Programming, Lambdas, and Decorators](session12.html)
 1. Writing a Distributable Package
 1. Python Performance, Multithreading, Multiprocessing
 1. Intro to Numpy and Pandas
