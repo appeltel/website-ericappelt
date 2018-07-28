@@ -32,7 +32,7 @@ Some ideas:
   * See what happens when you assign to keys, retrieve values
 * Look at sets that contain `CarKey` objects
   * Add a `CarKey` to the set multiple times.
-* Try changing the `CarKey` hash to return eighter 1 or 9.
+* Try changing the `CarKey` hash to return either 1 or 9.
   * As of CPython 3.7.0, dictionaries start with eight hash
     buckets. Try adding the 1-9 `CarKey` to a dictionary. Then
     observe the change in behavior when more keys are added.
