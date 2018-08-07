@@ -16,3 +16,6 @@ exclude:
   - README.md
   - "*.py"
   - venv
+
+include:
+  - pythonclass/matrix_invert.py
