@@ -127,7 +127,7 @@ replacement for attending each session.
 1. [Iteration Protocol, Generators, Sequences](session11.html)
 1. [Functional Programming, Lambdas, and Decorators](session12.html)
 1. [Writing a Distributable Package](session13.html)
-1. Python Performance, Multithreading, Multiprocessing
+1. [Python Performance, Multithreading, Multiprocessing](session14.html)
 1. Intro to Numpy and Pandas
 
 # License
