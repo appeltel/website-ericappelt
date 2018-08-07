@@ -18,4 +18,4 @@ exclude:
   - venv
 
 include:
-  - pythonclass/matrix_invert.py
+  - matrix_invert.py
