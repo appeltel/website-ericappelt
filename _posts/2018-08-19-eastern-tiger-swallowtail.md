@@ -3,7 +3,7 @@ layout: photopost
 title: Eastern Tiger Swallowtail
 category: metazoa
 mclass: Insecta
-mimage: 20180619_eastern_tiger_swallowtail_s.jpg
+mimage: 20180819_eastern_tiger_swallowtail_s.jpg
 ---
 
-Taken at Lullwater Preserve, Atlanta, GA
+Taken at Beersheba Springs, TN
