@@ -3,7 +3,7 @@ layout: photopost
 title: Green Tree Frog
 category: metazoa
 mclass: Amphibia
-mimage: images/metazoa/20180618_green_tree_frog_s.jpg
+mimage: 20180618_green_tree_frog_s.jpg
 ---
 
 I met a photographer who taught me how to find these: They like to hang
