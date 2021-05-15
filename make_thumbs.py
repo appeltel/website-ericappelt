@@ -3,6 +3,7 @@ import re
 from PIL import Image
 
 metazoa = os.listdir('images/metazoa')
+print(f'Found {len(metazoa)} image files...')
 
 for mimage in metazoa:
     if os.path.isfile('images/metazoa_thumbs/' + mimage):
